@@ -229,6 +229,50 @@ section {
     color: var(--light-gray);
 }
 
+/*=============== PROJECTS SECTION STYLES ADDED HERE ===============*/
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--dark-gray);
+    padding: 30px;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 170, 255, 0.1);
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    color: var(--light-gray);
+    margin-bottom: 25px;
+    flex-grow: 1; /* Allows paragraph to expand */
+}
+
+.project-card .btn {
+    align-self: flex-start; /* Aligns button to the left */
+}
+
+.project-card .btn i {
+    margin-left: 8px;
+    font-size: 0.9em;
+}
+
+/*=============== END OF PROJECT STYLES ===============*/
+
 /* Contact Section */
 #contact {
     text-align: center;
@@ -319,3 +363,10 @@ footer {
         padding: 0 5%;
     }
 }
+
+
+
+
+
+
+
