@@ -259,7 +259,7 @@ section {
 .project-card p {
     color: var(--light-gray);
     margin-bottom: 25px;
-    flex-grow: 1; /* Allows paragraph to expand */
+    flex-grow: 1; /* Allows paragraph to expand and keeps cards aligned */
 }
 
 .project-card .btn {
@@ -270,7 +270,6 @@ section {
     margin-left: 8px;
     font-size: 0.9em;
 }
-
 /*=============== END OF PROJECT STYLES ===============*/
 
 /* Contact Section */
@@ -363,7 +362,6 @@ footer {
         padding: 0 5%;
     }
 }
-
 
 
 
