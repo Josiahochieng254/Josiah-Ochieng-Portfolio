@@ -3,142 +3,860 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ochieng Josiah Odhiambo | Full Stack Developer</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Josiah Ochieng | Full Stack Developer & ICT Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #1e40af;
+            --accent-color: #ef4444;
+            --text-dark: #1f2937;
+            --text-light: #000000;
+            --bg-light: #ffffff;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: url('pexels-yankrukov-9072316.jpg') fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: -1;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7));
+            color: var(--white);
+            padding: 120px 2rem 80px;
+            text-align: center;
+            margin-top: 60px;
+            border-radius: 0;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+
+        .hero-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s;
+        }
+
+        .hero-text .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.85;
+        }
+
+        .hero-image {
+            flex: 0 0 300px;
+        }
+
+        .hero-image img {
+            width: 120%;
+            max-width: 200px;
+            border-radius: 10%;
+            border: 0px solid var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: fadeIn 1.5s;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        section {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 1rem auto;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            flex: 0 0 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item strong {
+            color: var(--primary-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .skill-category li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .company {
+            font-weight: bold;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item .date {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item ul {
+            list-style-position: inside;
+            color: var(--text-light);
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.5rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .project-content p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateX(5px);
+        }
+
+        .cert-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-section {
+            background: rgba(249, 250, 251, 0.98);
+            border-radius: 10px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card a {
+            color: var(--accent-color);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 60px;
+                flex-direction: column;
+                background: var(--secondary-color);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-image {
+                flex: 1;
+            }
+        }
+    </style>
 </head>
 <body>
-
     <header>
         <nav>
-            <div class="logo">JOSIAH.DEV</div>
-            <ul class="nav-links">
+            <div class="logo">Josiah Ochieng</div>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </nav>
     </header>
 
-    <main>
-        <section id="home" class="hero">
+    <section id="home" class="hero">
+        <div class="hero-content">
             <div class="hero-text">
-                <h1>Ochieng Josiah Odhiambo</h1>
-                <p>Full Stack Web Developer</p>
-                <a href="#contact" class="btn">Get In Touch</a>
+                <h1>Hi, I'm Josiah Ochieng</h1>
+                <p class="tagline">Full Stack Developer & ICT Professional</p>
+                <p>I work with full-stack web development, adapting to project requirements. From landing pages to full-stack applications including APIs, authentication, and deployment.</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
             </div>
-        </section>
+            <div class="hero-image">
+                <img src="Screenshot__4_-removebg-preview.png" alt="Josiah Ochieng">
+            </div>
+        </div>
+    </section>
 
-        <section id="about">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-container">
-                <div class="about-image">
-                    <img src="profile.jpg" alt="Ochieng Josiah Odhiambo">
-                </div>
-                <div class="about-text">
-                    <h3>Hello! I'm Josiah.</h3>
-                    <p>
-                        A dedicated Full Stack Web Developer with <strong>5 years of experience</strong> in building robust and scalable web applications. I recently graduated with a <strong>Bachelor of Science in Information Technology</strong> from Zetech University (2020-2024).
-                    </p>
-                    <p>
-                        I am passionate about creating seamless user experiences and efficient back-end systems. Whether it's a simple landing page or a complex full-stack application with APIs and authentication, I'm ready to tackle the challenge and deliver high-quality results.
-                    </p>
-                    <a href="https://linkedin.com/in/josiah-ochieng-a37788244/" target="_blank" class="btn">
-                        View LinkedIn <i class="fab fa-linkedin"></i>
-                    </a>
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="profile.jpg" alt="Josiah Ochieng Professional">
+            </div>
+            <div class="about-text">
+                <h3>Full Stack Developer & ICT Specialist</h3>
+                <p>I'm a highly motivated Bachelor of Science in ICT graduate with a robust foundation in multiple IT disciplines, including cyber security, data analytics, business intelligence, software engineering, and networking.</p>
+                <p>As a passionate and agile learner, I leverage a broad skill set to contribute to organizational goals. For front-end development, I work with HTML, CSS, JavaScript, and frameworks like React and Vue. On the back end, I use Node.js with Express, or sometimes Python with Django/Flask. I also work with databases like MySQL, PostgreSQL, and MongoDB.</p>
+                <p>My experience spans from computer training to graphic design and ICT support, demonstrating my versatility and adaptability in various technical and creative roles.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <strong>📍 Location:</strong> Nairobi, Kenya
+                    </div>
+                    <div class="contact-item">
+                        <strong>📧 Email:</strong> josiahochieng28@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <strong>📱 Phone:</strong> +254 700 820 358
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="skills">
-            <h2 class="section-title">My Tech Stack</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <i class="fas fa-code skill-icon"></i>
-                    <h3>Front-End</h3>
-                    <ul>
-                        <li>HTML5</li>
-                        <li>CSS3 & SASS</li>
-                        <li>JavaScript (ES6+)</li>
-                        <li>React</li>
-                        <li>Vue.js</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <i class="fas fa-server skill-icon"></i>
-                    <h3>Back-End</h3>
-                    <ul>
-                        <li>Node.js</li>
-                        <li>Express.js</li>
-                        <li>Python</li>
-                        <li>Django</li>
-                        <li>Flask</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <i class="fas fa-database skill-icon"></i>
-                    <h3>Databases</h3>
-                    <ul>
-                        <li>MongoDB</li>
-                        <li>PostgreSQL</li>
-                        <li>MySQL</li>
-                        <li>Firebase</li>
-                    </ul>
-                </div>
-                 <div class="skill-category">
-                    <i class="fas fa-tools skill-icon"></i>
-                    <h3>Other Tools</h3>
-                    <ul>
-                        <li>Git & GitHub</li>
-                        <li>REST APIs</li>
-                        <li>Docker</li>
-                        <li>Webpack</li>
-                        <li>Deployment (Vercel, Heroku)</li>
-                    </ul>
-                </div>
+    <section id="skills">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Frontend Development</h3>
+                <ul>
+                    <li>HTML5 & CSS3</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>React.js</li>
+                    <li>Vue.js</li>
+                    <li>Responsive Design</li>
+                </ul>
             </div>
-        </section>
+            <div class="skill-category">
+                <h3>Backend Development</h3>
+                <ul>
+                    <li>Node.js & Express</li>
+                    <li>Python (Django/Flask)</li>
+                    <li>RESTful APIs</li>
+                    <li>Authentication & Security</li>
+                    <li>Server Deployment</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Database Management</h3>
+                <ul>
+                    <li>MySQL</li>
+                    <li>PostgreSQL</li>
+                    <li>MongoDB</li>
+                    <li>Database Design</li>
+                    <li>Query Optimization</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Cybersecurity</h3>
+                <ul>
+                    <li>Network Defense</li>
+                    <li>Endpoint Security</li>
+                    <li>Cyber Threat Management</li>
+                    <li>Security Troubleshooting</li>
+                    <li>CCST Certified</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Data & Analytics</h3>
+                <ul>
+                    <li>Data Analysis</li>
+                    <li>Business Intelligence</li>
+                    <li>Analytical Thinking</li>
+                    <li>Research Skills</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Other Skills</h3>
+                <ul>
+                    <li>Graphic Design (Adobe/Canva)</li>
+                    <li>Networking Fundamentals</li>
+                    <li>Technical Training</li>
+                    <li>Problem Solving</li>
+                    <li>Team Collaboration</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-        <section id="projects">
-            <h2 class="section-title">My Projects</h2>
-            <div class="projects-container">
-                <div class="project-card">
-                    <h3>Zanzibar World</h3>
-                    <p>A comprehensive travel and tourism guide website, providing valuable insights and information for visitors to Zanzibar.</p>
-                    <a href="https://zanzibarworld.com/shopping-in-zanzibar/" target="_blank" class="btn">View Project <i class="fas fa-external-link-alt"></i></a>
-                </div>
-                <div class="project-card">
-                    <h3>Dr. Archana Dubey</h3>
-                    <p>A professional portfolio for a medical expert, created to be accessible, user-friendly, and informative for patients seeking consultation.</p>
-                    <a href="https://drarchanadubey.com/" target="_blank" class="btn">View Project <i class="fas fa-external-link-alt"></i></a>
+    <section id="experience">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="experience-timeline">
+            <div class="timeline-item">
+                <h3>Computer Trainer</h3>
+                <div class="company">Institute of Advanced Technology (IAT) – Buru Buru campus</div>
+                <div class="date">June 2025 – September 2025 | Nairobi, Kenya</div>
+                <ul>
+                    <li>Developed and delivered comprehensive computer literacy training modules to diverse learners</li>
+                    <li>Assessed trainee progress and adapted teaching methods to accommodate different learning styles</li>
+                    <li>Provided technical support and troubleshooting for hardware and software issues within the training lab</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h3>Graphic Designer</h3>
+                <div class="company">PJEA Limited</div>
+                <div class="date">March 2025 – May 2025 | Nairobi, Kenya</div>
+                <ul>
+                    <li>Designed and produced a variety of visual materials, including marketing brochures, social media graphics, and promotional banners</li>
+                    <li>Collaborated with the marketing team to translate concepts into compelling visual content</li>
+                    <li>Managed multiple design projects simultaneously, ensuring adherence to brand guidelines and deadlines</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h3>ICT Attaché</h3>
+                <div class="company">East Africa School of Aviation</div>
+                <div class="date">July 2024 – September 2024 | Nairobi, Kenya</div>
+                <ul>
+                    <li>Provided first-line technical support to staff, resolving hardware and software issues promptly</li>
+                    <li>Assisted in the maintenance and configuration of network systems and peripherals</li>
+                    <li>Participated in IT inventory management and documentation of processes</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Zanzibar World Shopping Guide</h3>
+                    <p>A comprehensive shopping guide website for Zanzibar featuring local markets, shops, and tourist information. Built with modern web technologies to provide an engaging user experience.</p>
+                    <a href="https://zanzibarworld.com/shopping-in-zanzibar/" target="_blank" class="project-link">View Project →</a>
                 </div>
             </div>
-        </section>
-        <section id="contact">
-            <h2 class="section-title">Let's Work Together</h2>
-            <div class="contact-container">
-                <p>
-                    I'm currently available for freelance projects or full-time opportunities. Have a project in mind? Let me know what you're looking for, and I'll bring the best approach to it.
-                </p>
-               
-             <a href="mailto:josiahochieng28@gmail.com?subject=Project%20Inquiry&body=Hello%20Josiah,%20I%20would%20like%20to%20discuss%20a%20project%20with%20you." class="btn">
-                    <i class="fas fa-envelope"></i> Email Me
-                </a>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Dr. Archana Dubey Website</h3>
+                    <p>Professional medical practice website featuring appointment booking, service information, and patient resources. Designed with a focus on accessibility and user-friendly navigation.</p>
+                    <a href="https://drarchanadubey.com/" target="_blank" class="project-link">View Project →</a>
+                </div>
             </div>
-        </section>
-    </main>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Full Stack Applications</h3>
+                    <p>Developed various full-stack web applications with authentication, API integration, and database management. Expertise in building scalable solutions from landing pages to complex systems.</p>
+                    <a href="https://github.com/Josiahochieng254" target="_blank" class="project-link">View GitHub →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2 class="section-title">Certifications & Education</h2>
+        <div class="certifications-grid">
+            <div class="cert-card">
+                <h4>BSc. Information Communication Technology</h4>
+                <p>Zetech University (2020-2024)</p>
+            </div>
+            <div class="cert-card">
+                <h4>Cisco Certified Support Technician (CCST) - Cybersecurity</h4>
+                <p>Cisco (Sept 2024 - Feb 2025)</p>
+            </div>
+            <div class="cert-card">
+                <h4>Certificate in Business Intelligence</h4>
+                <p>Simplilearn (Mar - May 2025)</p>
+            </div>
+            <div class="cert-card">
+                <h4>Certificate in Data Analytics</h4>
+                <p>Cisco (June - Aug 2025)</p>
+            </div>
+            <div class="cert-card">
+                <h4>Computer Hardware Basics</h4>
+                <p>Professional Certification</p>
+            </div>
+            <div class="cert-card">
+                <h4>Networking Fundamentals</h4>
+                <p>Professional Certification</p>
+            </div>
+            <div class="cert-card">
+                <h4>Network Defense & Security</h4>
+                <p>Professional Certification</p>
+            </div>
+            <div class="cert-card">
+                <h4>Endpoint Security</h4>
+                <p>Professional Certification</p>
+            </div>
+            <div class="cert-card">
+                <h4>Leadership Certificate</h4>
+                <p>Professional Development</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-section">
+            <h2 class="section-title">Get In Touch</h2>
+            <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 2rem;">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out!</p>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>📧 Email</h3>
+                    <a href="mailto:josiahochieng28@gmail.com">josiahochieng28@gmail.com</a>
+                </div>
+                <div class="contact-card">
+                    <h3>📱 Phone</h3>
+                    <a href="tel:+254700820358">+254 700 820 358</a>
+                </div>
+                <div class="contact-card">
+                    <h3>💼 GitHub</h3>
+                    <a href="https://github.com/Josiahochieng254" target="_blank">Josiahochieng254</a>
+                </div>
+                <div class="contact-card">
+                    <h3>💼 LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/josiah-ochieng-a37788244/" target="_blank">Josiah Ochieng</a>
+                </div>
+                <div class="contact-card">
+                    <h3>📍 Location</h3>
+                    <p>Nairobi, Kenya</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2025 Ochieng Josiah Odhiambo. All Rights Reserved.</p>
+        <p>&copy; 2025 Josiah Ochieng Odhiambo. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">Built with HTML, CSS & JavaScript</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.opacity = '0.8';
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.style.opacity = '1';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
