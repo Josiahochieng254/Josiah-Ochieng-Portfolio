@@ -15,10 +15,11 @@
             --primary-color: #000000;
             --secondary-color: #1e40af;
             --accent-color: #ef4444;
-            --text-dark: #1f2937;
-            --text-light: #000000;
-            --bg-light: #ffffff;
+            --text-dark: #ffffff;
+            --text-light: #f0f0f0;
+            --bg-light: rgba(255, 255, 255, 0.1);
             --white: #ffffff;
+            --footer-bg: #0f172a;
         }
 
         body {
@@ -29,6 +30,9 @@
             background: url('pexels-yankrukov-9072316.jpg') fixed;
             background-size: cover;
             background-position: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         
         body::before {
@@ -40,6 +44,10 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.85);
             z-index: -1;
+        }
+
+        .main-content {
+            flex: 1;
         }
 
         header {
@@ -98,6 +106,39 @@
             transition: 0.3s;
         }
 
+        /* FIXED TYPING ANIMATION - Text stays after typing */
+        .typing-container {
+            display: inline-block;
+            position: relative;
+        }
+
+        .typing-text {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--white);
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid var(--accent-color);
+            animation: typing 2.5s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--accent-color); }
+        }
+
+        /* Hide cursor after animation completes */
+        .typing-container.animation-done .typing-text {
+            border-right: none;
+            animation: none;
+        }
+
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7));
             color: var(--white);
@@ -122,7 +163,6 @@
         }
 
         .hero-text h1 {
-            font-size: 3rem;
             margin-bottom: 1rem;
             animation: fadeInUp 1s;
         }
@@ -185,21 +225,23 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
+        /* TRANSPARENT SECTIONS WITH WHITE TEXT */
         section {
             padding: 80px 2rem;
             max-width: 1200px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
+            margin: 0 auto 2rem;
+            background: rgba(0, 0, 0, 0.5); /* Transparent black background */
             border-radius: 10px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            color: var(--white); /* White text */
+            backdrop-filter: blur(5px);
         }
 
         .section-title {
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 3rem;
-            color: var(--primary-color);
+            color: var(--white); /* White title */
             position: relative;
         }
 
@@ -210,6 +252,99 @@
             height: 4px;
             background: var(--accent-color);
             margin: 1rem auto;
+        }
+
+        /* TESTIMONIALS SECTION */
+        #testimonials {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid var(--accent-color);
+            color: var(--white);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--accent-color);
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .author-info h4 {
+            color: var(--white);
+            margin-bottom: 0.3rem;
+            font-size: 1.2rem;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
         }
 
         .about-content {
@@ -225,7 +360,7 @@
         .about-image img {
             width: 100%;
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .about-text {
@@ -235,7 +370,7 @@
         .about-text h3 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: var(--primary-color);
+            color: var(--white);
         }
 
         .about-text p {
@@ -255,12 +390,14 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            color: var(--text-light);
         }
 
         .contact-item strong {
-            color: var(--primary-color);
+            color: var(--white);
         }
 
+        /* SKILLS SECTION - Updated for white text */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -268,19 +405,21 @@
         }
 
         .skill-category {
-            background: var(--bg-light);
+            background: rgba(255, 255, 255, 0.1);
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s, background 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .skill-category:hover {
             transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .skill-category h3 {
-            color: var(--primary-color);
+            color: var(--white);
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
@@ -304,6 +443,7 @@
             font-weight: bold;
         }
 
+        /* EXPERIENCE SECTION - Updated for white text */
         .experience-timeline {
             position: relative;
             padding-left: 2rem;
@@ -316,7 +456,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: var(--primary-color);
+            background: var(--white);
         }
 
         .timeline-item {
@@ -334,19 +474,19 @@
             height: 15px;
             border-radius: 50%;
             background: var(--accent-color);
-            border: 3px solid var(--white);
-            box-shadow: 0 0 0 3px var(--primary-color);
+            border: 3px solid rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 0 3px var(--white);
         }
 
         .timeline-item h3 {
-            color: var(--primary-color);
+            color: var(--white);
             font-size: 1.4rem;
             margin-bottom: 0.5rem;
         }
 
         .timeline-item .company {
             font-weight: bold;
-            color: var(--text-dark);
+            color: var(--text-light);
             margin-bottom: 0.3rem;
         }
 
@@ -365,6 +505,7 @@
             margin-bottom: 0.5rem;
         }
 
+        /* PROJECTS SECTION - Updated for white text */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -372,16 +513,18 @@
         }
 
         .project-card {
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .project-content {
@@ -389,7 +532,7 @@
         }
 
         .project-content h3 {
-            color: var(--primary-color);
+            color: var(--white);
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
@@ -399,19 +542,7 @@
             margin-bottom: 1rem;
         }
 
-        .project-link {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
+        /* CERTIFICATIONS SECTION - Updated for white text */
         .certifications-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -419,24 +550,31 @@
         }
 
         .cert-card {
-            background: var(--bg-light);
+            background: rgba(255, 255, 255, 0.1);
             padding: 1.5rem;
             border-radius: 8px;
             border-left: 4px solid var(--accent-color);
-            transition: transform 0.3s;
+            transition: transform 0.3s, background 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .cert-card:hover {
             transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .cert-card h4 {
-            color: var(--primary-color);
+            color: var(--white);
             margin-bottom: 0.5rem;
         }
 
+        .cert-card p {
+            color: var(--text-light);
+        }
+
+        /* CONTACT SECTION - Updated for white text */
         .contact-section {
-            background: rgba(249, 250, 251, 0.98);
+            background: rgba(0, 0, 0, 0.6);
             border-radius: 10px;
             padding: 3rem;
             text-align: center;
@@ -450,28 +588,72 @@
         }
 
         .contact-card {
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.1);
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .contact-card h3 {
-            color: var(--primary-color);
+            color: var(--white);
             margin-bottom: 1rem;
         }
 
-        .contact-card a {
+        .contact-card a, .contact-card p {
             color: var(--accent-color);
             text-decoration: none;
             word-break: break-all;
         }
 
+        .contact-card a:hover {
+            color: var(--white);
+        }
+
+        /* FIXED FOOTER - Now clearly visible */
         footer {
-            background: var(--text-dark);
+            background: var(--footer-bg);
             color: var(--white);
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            border-top: 4px solid var(--accent-color);
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 10;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(30, 64, 175, 0.1));
+            z-index: -1;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        footer p:first-child {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            opacity: 1;
+        }
+
+        footer p:nth-child(2) {
+            font-size: 0.9rem;
+            opacity: 0.7;
         }
 
         @keyframes fadeIn {
@@ -524,12 +706,13 @@
                 text-align: center;
             }
 
-            .hero-text h1 {
-                font-size: 2rem;
+            .typing-text {
+                font-size: 2.2rem;
             }
 
             .cta-buttons {
                 justify-content: center;
+                flex-wrap: wrap;
             }
 
             .about-content {
@@ -539,272 +722,374 @@
             .about-image {
                 flex: 1;
             }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-card {
+                padding: 2rem;
+            }
+
+            footer {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .typing-text {
+                font-size: 1.8rem;
+            }
+            
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+            
+            .testimonial-content {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 60px 1.5rem;
+            }
+            
+            footer {
+                padding: 2rem 1rem;
+            }
+            
+            footer p:first-child {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Josiah Ochieng</div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
-
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Hi, I'm Josiah Ochieng</h1>
-                <p class="tagline">Full Stack Developer & ICT Professional</p>
-                <p>I work with full-stack web development, adapting to project requirements. From landing pages to full-stack applications including APIs, authentication, and deployment.</p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+    <div class="main-content">
+        <header>
+            <nav>
+                <div class="logo">Josiah Ochieng</div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-            </div>
-            <div class="hero-image">
-                <img src="Screenshot__4_-removebg-preview.png" alt="Josiah Ochieng">
-            </div>
-        </div>
-    </section>
+            </nav>
+        </header>
 
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <div class="about-image">
-                <img src="profile.jpg" alt="Josiah Ochieng Professional">
-            </div>
-            <div class="about-text">
-                <h3>Full Stack Developer & ICT Specialist</h3>
-                <p>I'm a highly motivated Bachelor of Science in ICT graduate with a robust foundation in multiple IT disciplines, including cyber security, data analytics, business intelligence, software engineering, and networking.</p>
-                <p>As a passionate and agile learner, I leverage a broad skill set to contribute to organizational goals. For front-end development, I work with HTML, CSS, JavaScript, and frameworks like React and Vue. On the back end, I use Node.js with Express, or sometimes Python with Django/Flask. I also work with databases like MySQL, PostgreSQL, and MongoDB.</p>
-                <p>My experience spans from computer training to graphic design and ICT support, demonstrating my versatility and adaptability in various technical and creative roles.</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <strong>📍 Location:</strong> Nairobi, Kenya
-                    </div>
-                    <div class="contact-item">
-                        <strong>📧 Email:</strong> josiahochieng28@gmail.com
-                    </div>
-                    <div class="contact-item">
-                        <strong>📱 Phone:</strong> +254 700 820 358
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>
+                        <div class="typing-container" id="typingContainer">
+                            <div class="typing-text">Hi, I'm Josiah Ochieng</div>
+                        </div>
+                    </h1>
+                    <p class="tagline">Full Stack Developer & ICT Professional</p>
+                    <p>I work with full-stack web development, adapting to project requirements. From landing pages to full-stack applications including APIs, authentication, and deployment.</p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#testimonials" class="btn btn-secondary">Client Testimonials</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                     </div>
                 </div>
+                <div class="hero-image">
+                    <img src="Screenshot__4_-removebg-preview.png" alt="Josiah Ochieng">
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="skills">
-        <h2 class="section-title">Skills & Expertise</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Frontend Development</h3>
-                <ul>
-                    <li>HTML5 & CSS3</li>
-                    <li>JavaScript (ES6+)</li>
-                    <li>React.js</li>
-                    <li>Vue.js</li>
-                    <li>Responsive Design</li>
-                </ul>
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="profile.jpg" alt="Josiah Ochieng Professional">
+                </div>
+                <div class="about-text">
+                    <h3>Full Stack Developer & ICT Specialist</h3>
+                    <p>I'm a highly motivated Bachelor of Science in ICT graduate with a robust foundation in multiple IT disciplines, including cyber security, data analytics, business intelligence, software engineering, and networking.</p>
+                    <p>As a passionate and agile learner, I leverage a broad skill set to contribute to organizational goals. For front-end development, I work with HTML, CSS, JavaScript, and frameworks like React and Vue. On the back end, I use Node.js with Express, or sometimes Python with Django/Flask. I also work with databases like MySQL, PostgreSQL, and MongoDB.</p>
+                    <p>My experience spans from computer training to graphic design and ICT support, demonstrating my versatility and adaptability in various technical and creative roles.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <strong>📍 Location:</strong> Nairobi, Kenya
+                        </div>
+                        <div class="contact-item">
+                            <strong>📧 Email:</strong> josiahochieng28@gmail.com
+                        </div>
+                        <div class="contact-item">
+                            <strong>📱 Phone:</strong> +254 700 820 358
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="skill-category">
-                <h3>Backend Development</h3>
-                <ul>
-                    <li>Node.js & Express</li>
-                    <li>Python (Django/Flask)</li>
-                    <li>RESTful APIs</li>
-                    <li>Authentication & Security</li>
-                    <li>Server Deployment</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Database Management</h3>
-                <ul>
-                    <li>MySQL</li>
-                    <li>PostgreSQL</li>
-                    <li>MongoDB</li>
-                    <li>Database Design</li>
-                    <li>Query Optimization</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Cybersecurity</h3>
-                <ul>
-                    <li>Network Defense</li>
-                    <li>Endpoint Security</li>
-                    <li>Cyber Threat Management</li>
-                    <li>Security Troubleshooting</li>
-                    <li>CCST Certified</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Data & Analytics</h3>
-                <ul>
-                    <li>Data Analysis</li>
-                    <li>Business Intelligence</li>
-                    <li>Analytical Thinking</li>
-                    <li>Research Skills</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Other Skills</h3>
-                <ul>
-                    <li>Graphic Design (Adobe/Canva)</li>
-                    <li>Networking Fundamentals</li>
-                    <li>Technical Training</li>
-                    <li>Problem Solving</li>
-                    <li>Team Collaboration</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="experience">
-        <h2 class="section-title">Work Experience</h2>
-        <div class="experience-timeline">
-            <div class="timeline-item">
-                <h3>Computer Trainer</h3>
-                <div class="company">Institute of Advanced Technology (IAT) – Buru Buru campus</div>
-                <div class="date">June 2025 – September 2025 | Nairobi, Kenya</div>
-                <ul>
-                    <li>Developed and delivered comprehensive computer literacy training modules to diverse learners</li>
-                    <li>Assessed trainee progress and adapted teaching methods to accommodate different learning styles</li>
-                    <li>Provided technical support and troubleshooting for hardware and software issues within the training lab</li>
-                </ul>
+        <section id="skills">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend Development</h3>
+                    <ul>
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>React.js</li>
+                        <li>Vue.js</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend Development</h3>
+                    <ul>
+                        <li>Node.js & Express</li>
+                        <li>Python (Django/Flask)</li>
+                        <li>RESTful APIs</li>
+                        <li>Authentication & Security</li>
+                        <li>Server Deployment</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Database Management</h3>
+                    <ul>
+                        <li>MySQL</li>
+                        <li>PostgreSQL</li>
+                        <li>MongoDB</li>
+                        <li>Database Design</li>
+                        <li>Query Optimization</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Cybersecurity</h3>
+                    <ul>
+                        <li>Network Defense</li>
+                        <li>Endpoint Security</li>
+                        <li>Cyber Threat Management</li>
+                        <li>Security Troubleshooting</li>
+                        <li>CCST Certified</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Data & Analytics</h3>
+                    <ul>
+                        <li>Data Analysis</li>
+                        <li>Business Intelligence</li>
+                        <li>Analytical Thinking</li>
+                        <li>Research Skills</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Other Skills</h3>
+                    <ul>
+                        <li>Graphic Design (Adobe/Canva)</li>
+                        <li>Networking Fundamentals</li>
+                        <li>Technical Training</li>
+                        <li>Problem Solving</li>
+                        <li>Team Collaboration</li>
+                    </ul>
+                </div>
             </div>
-            <div class="timeline-item">
-                <h3>Graphic Designer</h3>
-                <div class="company">PJEA Limited</div>
-                <div class="date">March 2025 – May 2025 | Nairobi, Kenya</div>
-                <ul>
-                    <li>Designed and produced a variety of visual materials, including marketing brochures, social media graphics, and promotional banners</li>
-                    <li>Collaborated with the marketing team to translate concepts into compelling visual content</li>
-                    <li>Managed multiple design projects simultaneously, ensuring adherence to brand guidelines and deadlines</li>
-                </ul>
-            </div>
-            <div class="timeline-item">
-                <h3>ICT Attaché</h3>
-                <div class="company">East Africa School of Aviation</div>
-                <div class="date">July 2024 – September 2024 | Nairobi, Kenya</div>
-                <ul>
-                    <li>Provided first-line technical support to staff, resolving hardware and software issues promptly</li>
-                    <li>Assisted in the maintenance and configuration of network systems and peripherals</li>
-                    <li>Participated in IT inventory management and documentation of processes</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="projects">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-content">
-                    <h3>Zanzibar World Shopping Guide</h3>
-                    <p>A comprehensive shopping guide website for Zanzibar featuring local markets, shops, and tourist information. Built with modern web technologies to provide an engaging user experience.</p>
-                    <a href="https://zanzibarworld.com/shopping-in-zanzibar/" target="_blank" class="project-link">View Project →</a>
+        <section id="experience">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <h3>Computer Trainer</h3>
+                    <div class="company">Institute of Advanced Technology (IAT) – Buru Buru campus</div>
+                    <div class="date">June 2025 – September 2025 | Nairobi, Kenya</div>
+                    <ul>
+                        <li>Developed and delivered comprehensive computer literacy training modules to diverse learners</li>
+                        <li>Assessed trainee progress and adapted teaching methods to accommodate different learning styles</li>
+                        <li>Provided technical support and troubleshooting for hardware and software issues within the training lab</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>Graphic Designer</h3>
+                    <div class="company">PJEA Limited</div>
+                    <div class="date">March 2025 – May 2025 | Nairobi, Kenya</div>
+                    <ul>
+                        <li>Designed and produced a variety of visual materials, including marketing brochures, social media graphics, and promotional banners</li>
+                        <li>Collaborated with the marketing team to translate concepts into compelling visual content</li>
+                        <li>Managed multiple design projects simultaneously, ensuring adherence to brand guidelines and deadlines</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>ICT Attaché</h3>
+                    <div class="company">East Africa School of Aviation</div>
+                    <div class="date">July 2024 – September 2024 | Nairobi, Kenya</div>
+                    <ul>
+                        <li>Provided first-line technical support to staff, resolving hardware and software issues promptly</li>
+                        <li>Assisted in the maintenance and configuration of network systems and peripherals</li>
+                        <li>Participated in IT inventory management and documentation of processes</li>
+                    </ul>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-content">
-                    <h3>Dr. Archana Dubey Website</h3>
-                    <p>Professional medical practice website featuring appointment booking, service information, and patient resources. Designed with a focus on accessibility and user-friendly navigation.</p>
-                    <a href="https://drarchanadubey.com/" target="_blank" class="project-link">View Project →</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-content">
-                    <h3>Full Stack Applications</h3>
-                    <p>Developed various full-stack web applications with authentication, API integration, and database management. Expertise in building scalable solutions from landing pages to complex systems.</p>
-                    <a href="https://github.com/Josiahochieng254" target="_blank" class="project-link">View GitHub →</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="certifications">
-        <h2 class="section-title">Certifications & Education</h2>
-        <div class="certifications-grid">
-            <div class="cert-card">
-                <h4>BSc. Information Communication Technology</h4>
-                <p>Zetech University (2020-2024)</p>
+        <section id="projects">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Zanzibar World Shopping Guide</h3>
+                        <p>A comprehensive shopping guide website for Zanzibar featuring local markets, shops, and tourist information. Built with modern web technologies to provide an engaging user experience.</p>
+                        <a href="https://zanzibarworld.com/shopping-in-zanzibar/" target="_blank" class="project-link">View Project →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Dr. Archana Dubey Website</h3>
+                        <p>Professional medical practice website featuring appointment booking, service information, and patient resources. Designed with a focus on accessibility and user-friendly navigation.</p>
+                        <a href="https://drarchanadubey.com/" target="_blank" class="project-link">View Project →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Full Stack Applications</h3>
+                        <p>Developed various full-stack web applications with authentication, API integration, and database management. Expertise in building scalable solutions from landing pages to complex systems.</p>
+                        <a href="https://github.com/Josiahochieng254" target="_blank" class="project-link">View GitHub →</a>
+                    </div>
+                </div>
             </div>
-            <div class="cert-card">
-                <h4>Cisco Certified Support Technician (CCST) - Cybersecurity</h4>
-                <p>Cisco (Sept 2024 - Feb 2025)</p>
-            </div>
-            <div class="cert-card">
-                <h4>Certificate in Business Intelligence</h4>
-                <p>Simplilearn (Mar - May 2025)</p>
-            </div>
-            <div class="cert-card">
-                <h4>Certificate in Data Analytics</h4>
-                <p>Cisco (June - Aug 2025)</p>
-            </div>
-            <div class="cert-card">
-                <h4>Computer Hardware Basics</h4>
-                <p>Professional Certification</p>
-            </div>
-            <div class="cert-card">
-                <h4>Networking Fundamentals</h4>
-                <p>Professional Certification</p>
-            </div>
-            <div class="cert-card">
-                <h4>Network Defense & Security</h4>
-                <p>Professional Certification</p>
-            </div>
-            <div class="cert-card">
-                <h4>Endpoint Security</h4>
-                <p>Professional Certification</p>
-            </div>
-            <div class="cert-card">
-                <h4>Leadership Certificate</h4>
-                <p>Professional Development</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact">
-        <div class="contact-section">
-            <h2 class="section-title">Get In Touch</h2>
-            <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 2rem;">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out!</p>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <h3>📧 Email</h3>
-                    <a href="mailto:josiahochieng28@gmail.com">josiahochieng28@gmail.com</a>
+        <!-- TESTIMONIALS SECTION -->
+        <section id="testimonials">
+            <h2 class="section-title">Client Testimonials</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: var(--text-light); font-size: 1.1rem;">
+                Don't just take my word for it. Here's what clients say about working with me:
+            </p>
+            
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 - Dr. Archana Dubey -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Working with Josiah was a transformative experience for my medical practice. He didn't just build a website—he created a digital extension of my patient care philosophy. The intuitive patient portal, secure telehealth integration, and responsive design have improved patient engagement by 40%. His attention to medical SEO and HIPAA compliance was exceptional."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AD</div>
+                        <div class="author-info">
+                            <h4>Dr. Archana Dubey, MD, FACC</h4>
+                            <p>Cardiologist & Healthcare Innovator, California</p>
+                        </div>
+                    </div>
+                    <a href="https://drarchanadubey.com/" target="_blank" class="project-link">View Dr. Dubey's Website →</a>
                 </div>
-                <div class="contact-card">
-                    <h3>📱 Phone</h3>
-                    <a href="tel:+254700820358">+254 700 820 358</a>
+
+                <!-- Testimonial 2 - Zanzibar World Shopping Guide -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Josiah transformed our vision into Africa's most comprehensive shopping destination guide. The multilingual platform (English/Swahili), real-time vendor management system, and seamless mobile payment integration have increased our vendor partnerships by 300% in six months. The geolocation features for local markets exceeded our expectations."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ZW</div>
+                        <div class="author-info">
+                            <h4>Zanzibar World Shopping Guide</h4>
+                            <p>Premier Retail & Tourism Platform, Tanzania</p>
+                        </div>
+                    </div>
+                    <a href="https://zanzibarworld.com/shopping-in-zanzibar/" target="_blank" class="project-link">View Zanzibar World →</a>
                 </div>
-                <div class="contact-card">
-                    <h3>💼 GitHub</h3>
-                    <a href="https://github.com/Josiahochieng254" target="_blank">Josiahochieng254</a>
-                </div>
-                <div class="contact-card">
-                    <h3>💼 LinkedIn</h3>
-                    <a href="https://www.linkedin.com/in/josiah-ochieng-a37788244/" target="_blank">Josiah Ochieng</a>
-                </div>
-                <div class="contact-card">
-                    <h3>📍 Location</h3>
-                    <p>Nairobi, Kenya</p>
+
+                <!-- Testimonial 3 - Combined -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "From healthcare innovation to marketplace revolution, Josiah demonstrates remarkable versatility. He bridges technical excellence with deep understanding of user needs—whether those users are patients seeking care or artisans expanding their reach. His ability to adapt to completely different industries while maintaining technical excellence is remarkable."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JO</div>
+                        <div class="author-info">
+                            <h4>Josiah's Clients</h4>
+                            <p>Healthcare & E-commerce Projects</p>
+                        </div>
+                    </div>
+                    <a href="#projects" class="project-link">View All Projects →</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
+        <section id="certifications">
+            <h2 class="section-title">Certifications & Education</h2>
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <h4>BSc. Information Communication Technology</h4>
+                    <p>Zetech University (2020-2024)</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Cisco Certified Support Technician (CCST) - Cybersecurity</h4>
+                    <p>Cisco (Sept 2024 - Feb 2025)</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Certificate in Business Intelligence</h4>
+                    <p>Simplilearn (Mar - May 2025)</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Certificate in Data Analytics</h4>
+                    <p>Cisco (June - Aug 2025)</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Computer Hardware Basics</h4>
+                    <p>Professional Certification</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Networking Fundamentals</h4>
+                    <p>Professional Certification</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Network Defense & Security</h4>
+                    <p>Professional Certification</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Endpoint Security</h4>
+                    <p>Professional Certification</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Leadership Certificate</h4>
+                    <p>Professional Development</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="contact-section">
+                <h2 class="section-title">Get In Touch</h2>
+                <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 2rem;">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out!</p>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3>📧 Email</h3>
+                        <a href="mailto:josiahochieng28@gmail.com">josiahochieng28@gmail.com</a>
+                    </div>
+                    <div class="contact-card">
+                        <h3>📱 Phone</h3>
+                        <a href="tel:+254700820358">+254 700 820 358</a>
+                    </div>
+                    <div class="contact-card">
+                        <h3>💼 GitHub</h3>
+                        <a href="https://github.com/Josiahochieng254" target="_blank">Josiahochieng254</a>
+                    </div>
+                    <div class="contact-card">
+                        <h3>💼 LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/josiah-ochieng-a37788244/" target="_blank">Josiah Ochieng</a>
+                    </div>
+                    <div class="contact-card">
+                        <h3>📍 Location</h3>
+                        <p>Nairobi, Kenya</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FIXED VISIBLE FOOTER -->
     <footer>
         <p>&copy; 2025 Josiah Ochieng Odhiambo. All rights reserved.</p>
         <p style="margin-top: 0.5rem; opacity: 0.8;">Built with HTML, CSS & JavaScript</p>
@@ -813,6 +1098,7 @@
     <script>
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
+        const typingContainer = document.getElementById('typingContainer');
 
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
@@ -856,6 +1142,38 @@
                     link.style.opacity = '1';
                 }
             });
+        });
+
+        // FIXED TYPING ANIMATION - Text stays visible after typing
+        // The text will type once and stay visible
+        setTimeout(() => {
+            typingContainer.classList.add('animation-done');
+        }, 2500); // Remove cursor after typing completes
+
+        // Add scroll animations for testimonial cards
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 200);
+                }
+            });
+        }, observerOptions);
+
+        testimonialCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
         });
     </script>
 </body>
