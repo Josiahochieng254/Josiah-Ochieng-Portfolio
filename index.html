@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         :root {
             --primary-color: #000000;
             --secondary-color: #1e40af;
@@ -21,7 +21,6 @@
             --white: #ffffff;
             --footer-bg: #0f172a;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -34,7 +33,7 @@
             display: flex;
             flex-direction: column;
         }
-        
+       
         body::before {
             content: '';
             position: fixed;
@@ -45,11 +44,9 @@
             background: rgba(0, 0, 0, 0.85);
             z-index: -1;
         }
-
         .main-content {
             flex: 1;
         }
-
         header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: var(--white);
@@ -60,7 +57,6 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
         nav {
             display: flex;
             justify-content: space-between;
@@ -69,35 +65,29 @@
             margin: 0 auto;
             padding: 0 2rem;
         }
-
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
         }
-
         .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
         }
-
         .nav-links a {
             color: var(--white);
             text-decoration: none;
             transition: opacity 0.3s;
             font-weight: 500;
         }
-
         .nav-links a:hover {
             opacity: 0.8;
         }
-
         .hamburger {
             display: none;
             flex-direction: column;
             cursor: pointer;
         }
-
         .hamburger span {
             width: 25px;
             height: 3px;
@@ -105,13 +95,11 @@
             margin: 3px 0;
             transition: 0.3s;
         }
-
         /* FIXED TYPING ANIMATION - Text stays after typing */
         .typing-container {
             display: inline-block;
             position: relative;
         }
-
         .typing-text {
             font-size: 3rem;
             font-weight: bold;
@@ -122,23 +110,19 @@
             border-right: 3px solid var(--accent-color);
             animation: typing 2.5s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
         }
-
         @keyframes typing {
             from { width: 0 }
             to { width: 100% }
         }
-
         @keyframes blink-caret {
             from, to { border-color: transparent }
             50% { border-color: var(--accent-color); }
         }
-
         /* Hide cursor after animation completes */
         .typing-container.animation-done .typing-text {
             border-right: none;
             animation: none;
         }
-
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7));
             color: var(--white);
@@ -147,7 +131,6 @@
             margin-top: 60px;
             border-radius: 0;
         }
-
         .hero-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -156,47 +139,38 @@
             justify-content: space-between;
             gap: 3rem;
         }
-
         .hero-text {
             flex: 1;
             text-align: left;
         }
-
         .hero-text h1 {
             margin-bottom: 1rem;
             animation: fadeInUp 1s;
         }
-
         .hero-text .tagline {
             font-size: 1.3rem;
             margin-bottom: 1rem;
             opacity: 0.9;
         }
-
         .hero-text p {
             font-size: 1.1rem;
             margin-bottom: 2rem;
             opacity: 0.85;
         }
-
         .hero-image {
             flex: 0 0 300px;
         }
-
         .hero-image img {
             width: 120%;
             max-width: 200px;
             border-radius: 10%;
             border: 0px solid var(--white);
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            animation: fadeIn 1.5s;
         }
-
         .cta-buttons {
             display: flex;
             gap: 1rem;
         }
-
         .btn {
             padding: 0.8rem 2rem;
             border: none;
@@ -207,24 +181,20 @@
             text-decoration: none;
             display: inline-block;
         }
-
         .btn-primary {
             background: var(--white);
             color: var(--primary-color);
             font-weight: bold;
         }
-
         .btn-secondary {
             background: transparent;
             color: var(--white);
             border: 2px solid var(--white);
         }
-
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
-
         /* TRANSPARENT SECTIONS WITH WHITE TEXT */
         section {
             padding: 80px 2rem;
@@ -236,7 +206,6 @@
             color: var(--white); /* White text */
             backdrop-filter: blur(5px);
         }
-
         .section-title {
             font-size: 2.5rem;
             text-align: center;
@@ -244,7 +213,6 @@
             color: var(--white); /* White title */
             position: relative;
         }
-
         .section-title::after {
             content: '';
             display: block;
@@ -253,19 +221,16 @@
             background: var(--accent-color);
             margin: 1rem auto;
         }
-
         /* TESTIMONIALS SECTION */
         #testimonials {
             background: rgba(0, 0, 0, 0.6);
         }
-
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
-
         .testimonial-card {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
@@ -276,13 +241,11 @@
             border-left: 5px solid var(--accent-color);
             color: var(--white);
         }
-
         .testimonial-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
             background: rgba(255, 255, 255, 0.15);
         }
-
         .testimonial-card::before {
             content: '"';
             position: absolute;
@@ -293,7 +256,6 @@
             opacity: 0.3;
             font-family: Georgia, serif;
         }
-
         .testimonial-content {
             font-size: 1.1rem;
             line-height: 1.8;
@@ -302,13 +264,11 @@
             position: relative;
             z-index: 1;
         }
-
         .testimonial-author {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
-
         .author-avatar {
             width: 60px;
             height: 60px;
@@ -321,19 +281,16 @@
             font-weight: bold;
             font-size: 1.5rem;
         }
-
         .author-info h4 {
             color: var(--white);
             margin-bottom: 0.3rem;
             font-size: 1.2rem;
         }
-
         .author-info p {
             color: var(--text-light);
             font-size: 0.95rem;
             opacity: 0.9;
         }
-
         .project-link {
             display: inline-block;
             margin-top: 1rem;
@@ -342,68 +299,56 @@
             text-decoration: none;
             font-size: 0.95rem;
         }
-
         .project-link:hover {
             text-decoration: underline;
         }
-
         .about-content {
             display: flex;
             gap: 3rem;
             align-items: center;
         }
-
         .about-image {
             flex: 0 0 300px;
         }
-
         .about-image img {
             width: 100%;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
-
         .about-text {
             flex: 1;
         }
-
         .about-text h3 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
             color: var(--white);
         }
-
         .about-text p {
             margin-bottom: 1rem;
             color: var(--text-light);
             font-size: 1.05rem;
         }
-
         .contact-info {
             display: flex;
             flex-wrap: wrap;
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
-
         .contact-item {
             display: flex;
             align-items: center;
             gap: 0.5rem;
             color: var(--text-light);
         }
-
         .contact-item strong {
             color: var(--white);
         }
-
         /* SKILLS SECTION - Updated for white text */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
-
         .skill-category {
             background: rgba(255, 255, 255, 0.1);
             padding: 2rem;
@@ -412,29 +357,24 @@
             transition: transform 0.3s, background 0.3s;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
         .skill-category:hover {
             transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.15);
         }
-
         .skill-category h3 {
             color: var(--white);
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
-
         .skill-category ul {
             list-style: none;
         }
-
         .skill-category li {
             padding: 0.5rem 0;
             color: var(--text-light);
             position: relative;
             padding-left: 1.5rem;
         }
-
         .skill-category li::before {
             content: '▹';
             position: absolute;
@@ -442,13 +382,11 @@
             color: var(--accent-color);
             font-weight: bold;
         }
-
         /* EXPERIENCE SECTION - Updated for white text */
         .experience-timeline {
             position: relative;
             padding-left: 2rem;
         }
-
         .experience-timeline::before {
             content: '';
             position: absolute;
@@ -458,13 +396,11 @@
             width: 2px;
             background: var(--white);
         }
-
         .timeline-item {
             position: relative;
             margin-bottom: 3rem;
             padding-left: 2rem;
         }
-
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -477,41 +413,34 @@
             border: 3px solid rgba(0, 0, 0, 0.5);
             box-shadow: 0 0 0 3px var(--white);
         }
-
         .timeline-item h3 {
             color: var(--white);
             font-size: 1.4rem;
             margin-bottom: 0.5rem;
         }
-
         .timeline-item .company {
             font-weight: bold;
             color: var(--text-light);
             margin-bottom: 0.3rem;
         }
-
         .timeline-item .date {
             color: var(--text-light);
             font-style: italic;
             margin-bottom: 1rem;
         }
-
         .timeline-item ul {
             list-style-position: inside;
             color: var(--text-light);
         }
-
         .timeline-item li {
             margin-bottom: 0.5rem;
         }
-
         /* PROJECTS SECTION - Updated for white text */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
-
         .project-card {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
@@ -520,35 +449,29 @@
             transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
         .project-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.4);
             background: rgba(255, 255, 255, 0.15);
         }
-
         .project-content {
             padding: 2rem;
         }
-
         .project-content h3 {
             color: var(--white);
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
-
         .project-content p {
             color: var(--text-light);
             margin-bottom: 1rem;
         }
-
         /* CERTIFICATIONS SECTION - Updated for white text */
         .certifications-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 1.5rem;
         }
-
         .cert-card {
             background: rgba(255, 255, 255, 0.1);
             padding: 1.5rem;
@@ -557,21 +480,17 @@
             transition: transform 0.3s, background 0.3s;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
         .cert-card:hover {
             transform: translateX(5px);
             background: rgba(255, 255, 255, 0.15);
         }
-
         .cert-card h4 {
             color: var(--white);
             margin-bottom: 0.5rem;
         }
-
         .cert-card p {
             color: var(--text-light);
         }
-
         /* CONTACT SECTION - Updated for white text */
         .contact-section {
             background: rgba(0, 0, 0, 0.6);
@@ -579,14 +498,12 @@
             padding: 3rem;
             text-align: center;
         }
-
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
-
         .contact-card {
             background: rgba(255, 255, 255, 0.1);
             padding: 2rem;
@@ -594,26 +511,21 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.2);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
         .contact-card:hover {
             background: rgba(255, 255, 255, 0.15);
         }
-
         .contact-card h3 {
             color: var(--white);
             margin-bottom: 1rem;
         }
-
         .contact-card a, .contact-card p {
             color: var(--accent-color);
             text-decoration: none;
             word-break: break-all;
         }
-
         .contact-card a:hover {
             color: var(--white);
         }
-
         /* FIXED FOOTER - Now clearly visible */
         footer {
             background: var(--footer-bg);
@@ -626,7 +538,6 @@
             position: relative;
             z-index: 10;
         }
-
         footer::before {
             content: '';
             position: absolute;
@@ -637,25 +548,21 @@
             background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(30, 64, 175, 0.1));
             z-index: -1;
         }
-
         footer p {
             margin: 0.5rem 0;
             font-size: 1rem;
             opacity: 0.9;
         }
-
         footer p:first-child {
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 1rem;
             opacity: 1;
         }
-
         footer p:nth-child(2) {
             font-size: 0.9rem;
             opacity: 0.7;
         }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -664,7 +571,6 @@
                 opacity: 1;
             }
         }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -675,12 +581,10 @@
                 transform: translateY(0);
             }
         }
-
         @media (max-width: 768px) {
             .hamburger {
                 display: flex;
             }
-
             .nav-links {
                 position: fixed;
                 left: -100%;
@@ -692,71 +596,60 @@
                 transition: 0.3s;
                 padding: 2rem 0;
             }
-
             .nav-links.active {
                 left: 0;
             }
-
             .hero-content {
                 flex-direction: column-reverse;
                 text-align: center;
             }
-
             .hero-text {
                 text-align: center;
             }
-
             .typing-text {
                 font-size: 2.2rem;
             }
-
             .cta-buttons {
                 justify-content: center;
                 flex-wrap: wrap;
             }
-
             .about-content {
                 flex-direction: column;
             }
-
             .about-image {
                 flex: 1;
             }
-
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
-
             .testimonial-card {
                 padding: 2rem;
             }
-
             footer {
                 padding: 2.5rem 1.5rem;
             }
         }
-
         @media (max-width: 480px) {
             .typing-text {
                 font-size: 1.8rem;
             }
-            
+           
             .testimonial-card {
                 padding: 1.5rem;
             }
-            
+           
             .testimonial-content {
                 font-size: 1rem;
             }
-            
+           
             section {
                 padding: 60px 1.5rem;
             }
-            
+           
             footer {
                 padding: 2rem 1rem;
             }
-            
+           
             footer p:first-child {
                 font-size: 1.1rem;
             }
@@ -785,7 +678,6 @@
                 </div>
             </nav>
         </header>
-
         <section id="home" class="hero">
             <div class="hero-content">
                 <div class="hero-text">
@@ -807,7 +699,6 @@
                 </div>
             </div>
         </section>
-
         <section id="about">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
@@ -833,7 +724,6 @@
                 </div>
             </div>
         </section>
-
         <section id="skills">
             <h2 class="section-title">Skills & Expertise</h2>
             <div class="skills-grid">
@@ -898,7 +788,6 @@
                 </div>
             </div>
         </section>
-
         <section id="experience">
             <h2 class="section-title">Work Experience</h2>
             <div class="experience-timeline">
@@ -934,7 +823,6 @@
                 </div>
             </div>
         </section>
-
         <section id="projects">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
@@ -954,69 +842,65 @@
                 </div>
                 <div class="project-card">
                     <div class="project-content">
-                        <h3>Full Stack Applications</h3>
-                        <p>Developed various full-stack web applications with authentication, API integration, and database management. Expertise in building scalable solutions from landing pages to complex systems.</p>
-                        <a href="https://github.com/Josiahochieng254" target="_blank" class="project-link">View GitHub →</a>
+                        <h3>Enerpize Accounting Errors Hub</h3>
+                        <p>A comprehensive resource hub detailing common accounting errors and solutions, built as part of the Enerpize platform to help businesses manage their finances better.</p>
+                        <a href="https://www.enerpize.com/hub/accounting-errors" target="_blank" class="project-link">View Project →</a>
                     </div>
                 </div>
             </div>
         </section>
-
         <!-- TESTIMONIALS SECTION -->
         <section id="testimonials">
             <h2 class="section-title">Client Testimonials</h2>
             <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: var(--text-light); font-size: 1.1rem;">
                 Don't just take my word for it. Here's what clients say about working with me:
             </p>
-            
+           
             <div class="testimonials-grid">
-                <!-- Testimonial 1 - Dr. Archana Dubey -->
+                <!-- Testimonial 1 - Zanzibar World -->
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        "Working with Josiah was a transformative experience for my medical practice. He didn't just build a website—he created a digital extension of my patient care philosophy. The intuitive patient portal, secure telehealth integration, and responsive design have improved patient engagement by 40%. His attention to medical SEO and HIPAA compliance was exceptional."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">AD</div>
-                        <div class="author-info">
-                            <h4>Dr. Archana Dubey, MD, FACC</h4>
-                            <p>Cardiologist & Healthcare Innovator, California</p>
-                        </div>
-                    </div>
-                    <a href="https://drarchanadubey.com/" target="_blank" class="project-link">View Dr. Dubey's Website →</a>
-                </div>
-
-                <!-- Testimonial 2 - Zanzibar World Shopping Guide -->
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        "Josiah transformed our vision into Africa's most comprehensive shopping destination guide. The multilingual platform (English/Swahili), real-time vendor management system, and seamless mobile payment integration have increased our vendor partnerships by 300% in six months. The geolocation features for local markets exceeded our expectations."
+                        "The website development for our shopping guide has streamlined our tour bookings and transfers, making operations seamless and improving customer engagement significantly. Everything is well-organized, from planning to execution, enhancing our tourism management."
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">ZW</div>
                         <div class="author-info">
-                            <h4>Zanzibar World Shopping Guide</h4>
-                            <p>Premier Retail & Tourism Platform, Tanzania</p>
+                            <h4>Zanziworld Tours Manager</h4>
+                            <p>Tour Operator, Zanzibar</p>
                         </div>
                     </div>
                     <a href="https://zanzibarworld.com/shopping-in-zanzibar/" target="_blank" class="project-link">View Zanzibar World →</a>
                 </div>
-
-                <!-- Testimonial 3 - Combined -->
+                <!-- Testimonial 2 - Dr. Archana Dubey -->
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        "From healthcare innovation to marketplace revolution, Josiah demonstrates remarkable versatility. He bridges technical excellence with deep understanding of user needs—whether those users are patients seeking care or artisans expanding their reach. His ability to adapt to completely different industries while maintaining technical excellence is remarkable."
+                        "The new website has revolutionized our medical practice operations by simplifying appointment booking and patient information access. It reduced administrative workload and improved patient satisfaction through efficient consultations and management."
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-avatar">JO</div>
+                        <div class="author-avatar">AD</div>
                         <div class="author-info">
-                            <h4>Josiah's Clients</h4>
-                            <p>Healthcare & E-commerce Projects</p>
+                            <h4>Dr. Archana Dubey Clinic Staff</h4>
+                            <p>Medical Practice, Indore</p>
                         </div>
                     </div>
-                    <a href="#projects" class="project-link">View All Projects →</a>
+                    <a href="https://drarchanadubey.com/" target="_blank" class="project-link">View Dr. Archana Dubey →</a>
+                </div>
+                <!-- Testimonial 3 - Enerpize -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Enerpize's development has provided advanced modules for sales, HR, and operations, allowing us to disable unused features and focus on accounting and bookkeeping. It solved our business management issues with easy-to-use tools that enhanced overall efficiency."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ES</div>
+                        <div class="author-info">
+                            <h4>Enerpize User</h4>
+                            <p>Business Owner</p>
+                        </div>
+                    </div>
+                    <a href="https://www.enerpize.com/" target="_blank" class="project-link">View Enerpize →</a>
                 </div>
             </div>
         </section>
-
         <section id="certifications">
             <h2 class="section-title">Certifications & Education</h2>
             <div class="certifications-grid">
@@ -1056,9 +940,12 @@
                     <h4>Leadership Certificate</h4>
                     <p>Professional Development</p>
                 </div>
+                <div class="cert-card">
+                    <h4>Full Stack Development Course</h4>
+                    <p>IBM</p>
+                </div>
             </div>
         </section>
-
         <section id="contact">
             <div class="contact-section">
                 <h2 class="section-title">Get In Touch</h2>
@@ -1088,28 +975,23 @@
             </div>
         </section>
     </div>
-
     <!-- FIXED VISIBLE FOOTER -->
     <footer>
         <p>&copy; 2025 Josiah Ochieng Odhiambo. All rights reserved.</p>
         <p style="margin-top: 0.5rem; opacity: 0.8;">Built with HTML, CSS & JavaScript</p>
     </footer>
-
     <script>
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         const typingContainer = document.getElementById('typingContainer');
-
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
-
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
         });
-
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1122,11 +1004,10 @@
                 }
             });
         });
-
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-links a');
-            
+           
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
@@ -1135,7 +1016,6 @@
                     current = section.getAttribute('id');
                 }
             });
-
             navLinks.forEach(link => {
                 link.style.opacity = '0.8';
                 if (link.getAttribute('href').slice(1) === current) {
@@ -1143,21 +1023,18 @@
                 }
             });
         });
-
         // FIXED TYPING ANIMATION - Text stays visible after typing
         // The text will type once and stay visible
         setTimeout(() => {
             typingContainer.classList.add('animation-done');
         }, 2500); // Remove cursor after typing completes
-
         // Add scroll animations for testimonial cards
         const testimonialCards = document.querySelectorAll('.testimonial-card');
-        
+       
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
@@ -1168,7 +1045,6 @@
                 }
             });
         }, observerOptions);
-
         testimonialCards.forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
@@ -1178,3 +1054,4 @@
     </script>
 </body>
 </html>
+```
