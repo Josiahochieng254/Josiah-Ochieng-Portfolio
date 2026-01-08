@@ -1,4 +1,4 @@
-```html 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +19,7 @@
             --text-light: #f0f0f0;
             --bg-light: rgba(255, 255, 255, 0.1);
             --white: #ffffff;
-            --footer-bg: #0f172a;
+            --footer-bg: #001f3f; /* Changed to dark blue */
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -159,6 +159,7 @@
         }
         .hero-image {
             flex: 0 0 300px;
+            position: relative;
         }
         .hero-image img {
             width: 120%;
@@ -526,12 +527,33 @@
         .contact-card a:hover {
             color: var(--white);
         }
+        /* Added for better responsiveness in contact section */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-card {
+                padding: 1.5rem;
+                text-align: center;
+            }
+        }
+        @media (max-width: 480px) {
+            .contact-card {
+                padding: 1rem;
+            }
+            .contact-card h3 {
+                font-size: 1.2rem;
+            }
+            .contact-card a, .contact-card p {
+                font-size: 0.9rem;
+            }
+        }
         /* FIXED FOOTER - Now clearly visible */
         footer {
             background: var(--footer-bg);
             color: var(--white);
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 1rem 2rem; /* Reduced padding to make thinner */
             margin-top: 4rem;
             border-top: 4px solid var(--accent-color);
             box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
@@ -626,7 +648,7 @@
                 padding: 2rem;
             }
             footer {
-                padding: 2.5rem 1.5rem;
+                padding: 1rem 1.5rem; /* Adjusted for mobile */
             }
         }
         @media (max-width: 480px) {
@@ -647,7 +669,7 @@
             }
            
             footer {
-                padding: 2rem 1rem;
+                padding: 1rem; /* Adjusted for small screens */
             }
            
             footer p:first-child {
@@ -794,7 +816,7 @@
                 <div class="timeline-item">
                     <h3>Computer Trainer</h3>
                     <div class="company">Institute of Advanced Technology (IAT) – Buru Buru campus</div>
-                    <div class="date">June 2025 – September 2025 | Nairobi, Kenya</div>
+                    <div class="date">June 2025 – January 2026 | Nairobi, Kenya</div>
                     <ul>
                         <li>Developed and delivered comprehensive computer literacy training modules to diverse learners</li>
                         <li>Assessed trainee progress and adapted teaching methods to accommodate different learning styles</li>
@@ -953,7 +975,7 @@
                 <div class="contact-grid">
                     <div class="contact-card">
                         <h3>📧 Email</h3>
-                        <a href="mailto:josiahochieng28@gmail.com">josiahochieng28@gmail.com</a>
+                        <a href="https://mail.google.com/mail?view=cm&fs=1&to=josiahochieng28@gmail.com" target="_blank">josiahochieng28@gmail.com</a>
                     </div>
                     <div class="contact-card">
                         <h3>📱 Phone</h3>
@@ -969,7 +991,7 @@
                     </div>
                     <div class="contact-card">
                         <h3>📍 Location</h3>
-                        <p>Nairobi, Kenya</p>
+                        <a href="https://www.google.com/maps/place/Nairobi,+Kenya" target="_blank">Nairobi, Kenya</a>
                     </div>
                 </div>
             </div>
@@ -977,8 +999,8 @@
     </div>
     <!-- FIXED VISIBLE FOOTER -->
     <footer>
-        <p>&copy; 2025 Josiah Ochieng Odhiambo. All rights reserved.</p>
-        <p style="margin-top: 0.5rem; opacity: 0.8;">Built with HTML, CSS & JavaScript</p>
+        <p>&copy; 2026 Josiah Ochieng Odhiambo. All rights reserved.</p>
+        
     </footer>
     <script>
         const hamburger = document.getElementById('hamburger');
