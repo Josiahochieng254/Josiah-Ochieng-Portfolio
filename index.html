@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +18,7 @@
             --text-light: #f0f0f0;
             --bg-light: rgba(255, 255, 255, 0.1);
             --white: #ffffff;
-            --footer-bg: #001f3f; /* Changed to dark blue */
+            --footer-bg: #001f3f;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -41,14 +40,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.7); /* Changed from 0.85 to 0.7 for more visibility */
             z-index: -1;
         }
         .main-content {
             flex: 1;
         }
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(30, 64, 175, 0.8));
             color: var(--white);
             padding: 1rem 0;
             position: fixed;
@@ -56,6 +55,7 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
         }
         nav {
             display: flex;
@@ -124,12 +124,13 @@
             animation: none;
         }
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7));
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)); /* More transparent */
             color: var(--white);
             padding: 120px 2rem 80px;
             text-align: center;
             margin-top: 60px;
             border-radius: 0;
+            backdrop-filter: blur(3px);
         }
         .hero-content {
             max-width: 1200px;
@@ -196,22 +197,23 @@
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
-        /* TRANSPARENT SECTIONS WITH WHITE TEXT */
+        /* TRANSPARENT SECTIONS WITH WHITE TEXT - More transparent */
         section {
             padding: 80px 2rem;
             max-width: 1200px;
             margin: 0 auto 2rem;
-            background: rgba(0, 0, 0, 0.5); /* Transparent black background */
+            background: rgba(0, 0, 0, 0.4); /* Changed from 0.5 to 0.4 for more transparency */
             border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            color: var(--white); /* White text */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            color: var(--white);
             backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .section-title {
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 3rem;
-            color: var(--white); /* White title */
+            color: var(--white);
             position: relative;
         }
         .section-title::after {
@@ -224,7 +226,7 @@
         }
         /* TESTIMONIALS SECTION */
         #testimonials {
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.4); /* More transparent */
         }
         .testimonials-grid {
             display: grid;
@@ -344,7 +346,7 @@
         .contact-item strong {
             color: var(--white);
         }
-        /* SKILLS SECTION - Updated for white text */
+        /* SKILLS SECTION */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -383,7 +385,7 @@
             color: var(--accent-color);
             font-weight: bold;
         }
-        /* EXPERIENCE SECTION - Updated for white text */
+        /* EXPERIENCE SECTION */
         .experience-timeline {
             position: relative;
             padding-left: 2rem;
@@ -436,7 +438,7 @@
         .timeline-item li {
             margin-bottom: 0.5rem;
         }
-        /* PROJECTS SECTION - Updated for white text */
+        /* PROJECTS SECTION */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -467,7 +469,7 @@
             color: var(--text-light);
             margin-bottom: 1rem;
         }
-        /* CERTIFICATIONS SECTION - Updated for white text */
+        /* CERTIFICATIONS SECTION */
         .certifications-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -492,9 +494,9 @@
         .cert-card p {
             color: var(--text-light);
         }
-        /* CONTACT SECTION - Updated for white text */
+        /* CONTACT SECTION */
         .contact-section {
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.4); /* More transparent */
             border-radius: 10px;
             padding: 3rem;
             text-align: center;
@@ -548,17 +550,18 @@
                 font-size: 0.9rem;
             }
         }
-        /* FIXED FOOTER - Now clearly visible */
+        /* FIXED FOOTER */
         footer {
             background: var(--footer-bg);
             color: var(--white);
             text-align: center;
-            padding: 1rem 2rem; /* Reduced padding to make thinner */
+            padding: 1rem 2rem;
             margin-top: 4rem;
             border-top: 4px solid var(--accent-color);
             box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
             position: relative;
             z-index: 10;
+            backdrop-filter: blur(5px);
         }
         footer::before {
             content: '';
@@ -612,11 +615,12 @@
                 left: -100%;
                 top: 60px;
                 flex-direction: column;
-                background: var(--secondary-color);
+                background: rgba(30, 64, 175, 0.95);
                 width: 100%;
                 text-align: center;
                 transition: 0.3s;
                 padding: 2rem 0;
+                backdrop-filter: blur(10px);
             }
             .nav-links.active {
                 left: 0;
@@ -648,7 +652,7 @@
                 padding: 2rem;
             }
             footer {
-                padding: 1rem 1.5rem; /* Adjusted for mobile */
+                padding: 1rem 1.5rem;
             }
         }
         @media (max-width: 480px) {
@@ -669,7 +673,7 @@
             }
            
             footer {
-                padding: 1rem; /* Adjusted for small screens */
+                padding: 1rem;
             }
            
             footer p:first-child {
@@ -848,6 +852,15 @@
         <section id="projects">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
+                <!-- UNDUGU PROGRAMS - First Project -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Undugu Programs Website</h3>
+                        <p>A comprehensive website for Undugu Programs, featuring program information, community initiatives, and project updates. Built with responsive design to effectively communicate the organization's mission and impact.</p>
+                        <a href="https://www.unduguprograms.com/" target="_blank" class="project-link">View Project →</a>
+                    </div>
+                </div>
+                <!-- ZANZIBAR WORLD SHOPPING GUIDE - Second Project -->
                 <div class="project-card">
                     <div class="project-content">
                         <h3>Zanzibar World Shopping Guide</h3>
@@ -855,18 +868,12 @@
                         <a href="https://zanzibarworld.com/shopping-in-zanzibar/" target="_blank" class="project-link">View Project →</a>
                     </div>
                 </div>
+                <!-- GITHUB PORTFOLIO - Third Project -->
                 <div class="project-card">
                     <div class="project-content">
-                        <h3>Dr. Archana Dubey Website</h3>
-                        <p>Professional medical practice website featuring appointment booking, service information, and patient resources. Designed with a focus on accessibility and user-friendly navigation.</p>
-                        <a href="https://drarchanadubey.com/" target="_blank" class="project-link">View Project →</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Enerpize Accounting Errors Hub</h3>
-                        <p>A comprehensive resource hub detailing common accounting errors and solutions, built as part of the Enerpize platform to help businesses manage their finances better.</p>
-                        <a href="https://www.enerpize.com/hub/accounting-errors" target="_blank" class="project-link">View Project →</a>
+                        <h3>GitHub Development Portfolio</h3>
+                        <p>My comprehensive GitHub portfolio featuring various coding projects, contributions, and open-source work. Includes full-stack applications, API integrations, and web development projects showcasing my technical skills.</p>
+                        <a href="https://github.com/Josiahochieng254" target="_blank" class="project-link">View GitHub Portfolio →</a>
                     </div>
                 </div>
             </div>
@@ -879,7 +886,21 @@
             </p>
            
             <div class="testimonials-grid">
-                <!-- Testimonial 1 - Zanzibar World -->
+                <!-- Testimonial 1 - UNDUGU PROGRAMS -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Josiah's development of our Undugu Programs website has significantly enhanced our online presence and community engagement. The platform effectively communicates our mission and has streamlined our program information dissemination. His attention to detail and understanding of our organizational needs was exceptional."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">IW</div>
+                        <div class="author-info">
+                            <h4>Immaculate Wesonga</h4>
+                            <p>Programs Manager, Undugu Programs</p>
+                        </div>
+                    </div>
+                    <a href="https://www.unduguprograms.com/" target="_blank" class="project-link">View Undugu Programs →</a>
+                </div>
+                <!-- Testimonial 2 - ZANZIBAR WORLD -->
                 <div class="testimonial-card">
                     <div class="testimonial-content">
                         "The website development for our shopping guide has streamlined our tour bookings and transfers, making operations seamless and improving customer engagement significantly. Everything is well-organized, from planning to execution, enhancing our tourism management."
@@ -893,33 +914,19 @@
                     </div>
                     <a href="https://zanzibarworld.com/shopping-in-zanzibar/" target="_blank" class="project-link">View Zanzibar World →</a>
                 </div>
-                <!-- Testimonial 2 - Dr. Archana Dubey -->
+                <!-- Testimonial 3 - PERSONAL TESTIMONY -->
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        "The new website has revolutionized our medical practice operations by simplifying appointment booking and patient information access. It reduced administrative workload and improved patient satisfaction through efficient consultations and management."
+                        "As a developer, I've worked on various projects that demonstrate my ability to adapt to different requirements and deliver quality results. My GitHub portfolio showcases my commitment to clean code, problem-solving, and continuous learning. I take pride in creating solutions that are both functional and user-friendly."
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-avatar">AD</div>
+                        <div class="author-avatar">JO</div>
                         <div class="author-info">
-                            <h4>Dr. Archana Dubey Clinic Staff</h4>
-                            <p>Medical Practice, Indore</p>
+                            <h4>Josiah Ochieng</h4>
+                            <p>Full Stack Developer & ICT Professional</p>
                         </div>
                     </div>
-                    <a href="https://drarchanadubey.com/" target="_blank" class="project-link">View Dr. Archana Dubey →</a>
-                </div>
-                <!-- Testimonial 3 - Enerpize -->
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        "Enerpize's development has provided advanced modules for sales, HR, and operations, allowing us to disable unused features and focus on accounting and bookkeeping. It solved our business management issues with easy-to-use tools that enhanced overall efficiency."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">ES</div>
-                        <div class="author-info">
-                            <h4>Enerpize User</h4>
-                            <p>Business Owner</p>
-                        </div>
-                    </div>
-                    <a href="https://www.enerpize.com/" target="_blank" class="project-link">View Enerpize →</a>
+                    <a href="https://github.com/Josiahochieng254" target="_blank" class="project-link">View My GitHub →</a>
                 </div>
             </div>
         </section>
@@ -1000,7 +1007,6 @@
     <!-- FIXED VISIBLE FOOTER -->
     <footer>
         <p>&copy; 2026 Josiah Ochieng Odhiambo. All rights reserved.</p>
-        
     </footer>
     <script>
         const hamburger = document.getElementById('hamburger');
@@ -1046,10 +1052,9 @@
             });
         });
         // FIXED TYPING ANIMATION - Text stays visible after typing
-        // The text will type once and stay visible
         setTimeout(() => {
             typingContainer.classList.add('animation-done');
-        }, 2500); // Remove cursor after typing completes
+        }, 2500);
         // Add scroll animations for testimonial cards
         const testimonialCards = document.querySelectorAll('.testimonial-card');
        
@@ -1076,4 +1081,3 @@
     </script>
 </body>
 </html>
-```
