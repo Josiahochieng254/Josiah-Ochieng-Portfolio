@@ -40,7 +40,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7); /* Changed from 0.85 to 0.7 for more visibility */
+            background: rgba(0, 0, 0, 0.7);
             z-index: -1;
         }
         .main-content {
@@ -95,7 +95,6 @@
             margin: 3px 0;
             transition: 0.3s;
         }
-        /* FIXED TYPING ANIMATION - Text stays after typing */
         .typing-container {
             display: inline-block;
             position: relative;
@@ -118,13 +117,12 @@
             from, to { border-color: transparent }
             50% { border-color: var(--accent-color); }
         }
-        /* Hide cursor after animation completes */
         .typing-container.animation-done .typing-text {
             border-right: none;
             animation: none;
         }
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)); /* More transparent */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));
             color: var(--white);
             padding: 120px 2rem 80px;
             text-align: center;
@@ -197,12 +195,11 @@
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
-        /* TRANSPARENT SECTIONS WITH WHITE TEXT - More transparent */
         section {
             padding: 80px 2rem;
             max-width: 1200px;
             margin: 0 auto 2rem;
-            background: rgba(0, 0, 0, 0.4); /* Changed from 0.5 to 0.4 for more transparency */
+            background: rgba(0, 0, 0, 0.4);
             border-radius: 10px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
             color: var(--white);
@@ -224,9 +221,8 @@
             background: var(--accent-color);
             margin: 1rem auto;
         }
-        /* TESTIMONIALS SECTION */
         #testimonials {
-            background: rgba(0, 0, 0, 0.4); /* More transparent */
+            background: rgba(0, 0, 0, 0.4);
         }
         .testimonials-grid {
             display: grid;
@@ -346,7 +342,6 @@
         .contact-item strong {
             color: var(--white);
         }
-        /* SKILLS SECTION */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -385,7 +380,6 @@
             color: var(--accent-color);
             font-weight: bold;
         }
-        /* EXPERIENCE SECTION */
         .experience-timeline {
             position: relative;
             padding-left: 2rem;
@@ -438,7 +432,6 @@
         .timeline-item li {
             margin-bottom: 0.5rem;
         }
-        /* PROJECTS SECTION */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -469,7 +462,6 @@
             color: var(--text-light);
             margin-bottom: 1rem;
         }
-        /* CERTIFICATIONS SECTION */
         .certifications-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -494,9 +486,8 @@
         .cert-card p {
             color: var(--text-light);
         }
-        /* CONTACT SECTION */
         .contact-section {
-            background: rgba(0, 0, 0, 0.4); /* More transparent */
+            background: rgba(0, 0, 0, 0.4);
             border-radius: 10px;
             padding: 3rem;
             text-align: center;
@@ -529,7 +520,6 @@
         .contact-card a:hover {
             color: var(--white);
         }
-        /* Added for better responsiveness in contact section */
         @media (max-width: 768px) {
             .contact-grid {
                 grid-template-columns: 1fr;
@@ -550,7 +540,6 @@
                 font-size: 0.9rem;
             }
         }
-        /* FIXED FOOTER */
         footer {
             background: var(--footer-bg);
             color: var(--white);
@@ -820,7 +809,7 @@
                 <div class="timeline-item">
                     <h3>Computer Trainer</h3>
                     <div class="company">Institute of Advanced Technology (IAT) – Buru Buru campus</div>
-                    <div class="date">June 2025 – January 2026 | Nairobi, Kenya</div>
+                    <div class="date">June 2025 – May 2026 | Nairobi, Kenya</div>
                     <ul>
                         <li>Developed and delivered comprehensive computer literacy training modules to diverse learners</li>
                         <li>Assessed trainee progress and adapted teaching methods to accommodate different learning styles</li>
@@ -852,20 +841,20 @@
         <section id="projects">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
-                <!-- UNDUGU PROGRAMS - First Project -->
+                <!-- AL-AHDI INSURANCE - First Project -->
                 <div class="project-card">
                     <div class="project-content">
-                        <h3>Undugu Programs Website</h3>
-                        <p>A comprehensive website for Undugu Programs, featuring program information, community initiatives, and project updates. Built with responsive design to effectively communicate the organization's mission and impact.</p>
-                        <a href="https://www.unduguprograms.com/" target="_blank" class="project-link">View Project →</a>
+                        <h3>Al-Ahdi Insurance Brokers</h3>
+                        <p>A comprehensive corporate website for a leading insurance brokerage. Features product catalogs (Motor, Health, Travel, Pensions), dynamic claims process guide, downloadable forms, partner integrations, and a clean information architecture for complex financial services.</p>
+                        <a href="https://www.alahdiinsurance.co.ke/" target="_blank" class="project-link">View Project →</a>
                     </div>
                 </div>
-                <!-- ZANZIBAR WORLD SHOPPING GUIDE - Second Project -->
+                <!-- BEYIRO STUDIOS - Second Project -->
                 <div class="project-card">
                     <div class="project-content">
-                        <h3>Zanzibar World Shopping Guide</h3>
-                        <p>A comprehensive shopping guide website for Zanzibar featuring local markets, shops, and tourist information. Built with modern web technologies to provide an engaging user experience.</p>
-                        <a href="https://zanzibarworld.com/shopping-in-zanzibar/" target="_blank" class="project-link">View Project →</a>
+                        <h3>Beyiro Studios</h3>
+                        <p>A luxury responsive brand landing page for a beauty studio. Features fullscreen background video, dynamic service gallery, booking system with modals, FAQs, terms & conditions, and a mobile-optimized user experience using modern CSS Grid/Flexbox and JavaScript.</p>
+                        <a href="http://mangoafrica.co.ke/BeyiroStudios/" target="_blank" class="project-link">View Project →</a>
                     </div>
                 </div>
                 <!-- GITHUB PORTFOLIO - Third Project -->
@@ -886,33 +875,33 @@
             </p>
            
             <div class="testimonials-grid">
-                <!-- Testimonial 1 - UNDUGU PROGRAMS -->
+                <!-- Testimonial 1 - AL-AHDI INSURANCE -->
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        "Josiah's development of our Undugu Programs website has significantly enhanced our online presence and community engagement. The platform effectively communicates our mission and has streamlined our program information dissemination. His attention to detail and understanding of our organizational needs was exceptional."
+                        "Josiah's development of our corporate website has greatly enhanced our digital presence. The platform's intuitive product catalog and streamlined claims process guide have improved client engagement. His professional approach and understanding of our complex insurance products were truly valuable."
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-avatar">IW</div>
+                        <div class="author-avatar">AH</div>
                         <div class="author-info">
-                            <h4>Immaculate Wesonga</h4>
-                            <p>Programs Manager, Undugu Programs</p>
+                            <h4>Al-Ahdi Insurance Team</h4>
+                            <p>Al-Ahdi Insurance Brokers</p>
                         </div>
                     </div>
-                    <a href="https://www.unduguprograms.com/" target="_blank" class="project-link">View Undugu Programs →</a>
+                    <a href="https://www.alahdiinsurance.co.ke/" target="_blank" class="project-link">View Al-Ahdi Insurance →</a>
                 </div>
-                <!-- Testimonial 2 - ZANZIBAR WORLD -->
+                <!-- Testimonial 2 - BEYIRO STUDIOS -->
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        "The website development for our shopping guide has streamlined our tour bookings and transfers, making operations seamless and improving customer engagement significantly. Everything is well-organized, from planning to execution, enhancing our tourism management."
+                        "The beautiful, responsive landing page Josiah built for Beyiro Studios perfectly captures our luxury brand identity. The seamless booking system and professional presentation have elevated our online client experience. He delivered high-quality work that aligns with our vision."
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-avatar">ZW</div>
+                        <div class="author-avatar">BS</div>
                         <div class="author-info">
-                            <h4>Zanziworld Tours Manager</h4>
-                            <p>Tour Operator, Zanzibar</p>
+                            <h4>Beyiro Studios</h4>
+                            <p>Luxury Hair & Mentorship Brand, UK</p>
                         </div>
                     </div>
-                    <a href="https://zanzibarworld.com/shopping-in-zanzibar/" target="_blank" class="project-link">View Zanzibar World →</a>
+                    <a href="http://mangoafrica.co.ke/BeyiroStudios/" target="_blank" class="project-link">View Beyiro Studios →</a>
                 </div>
                 <!-- Testimonial 3 - PERSONAL TESTIMONY -->
                 <div class="testimonial-card">
@@ -1004,7 +993,6 @@
             </div>
         </section>
     </div>
-    <!-- FIXED VISIBLE FOOTER -->
     <footer>
         <p>&copy; 2026 Josiah Ochieng Odhiambo. All rights reserved.</p>
     </footer>
@@ -1051,11 +1039,9 @@
                 }
             });
         });
-        // FIXED TYPING ANIMATION - Text stays visible after typing
         setTimeout(() => {
             typingContainer.classList.add('animation-done');
         }, 2500);
-        // Add scroll animations for testimonial cards
         const testimonialCards = document.querySelectorAll('.testimonial-card');
        
         const observerOptions = {
